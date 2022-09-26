@@ -1,0 +1,19 @@
+.header-1{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+.header-1-icons{
+    font-size: 2rem;
+    color: grey;
+    display: flex;
+    gap: 20px;
+}
+.heart{
+    font-size: 2.2rem;
+}
+.comment{
+    font-size: 2.2rem;
+}
