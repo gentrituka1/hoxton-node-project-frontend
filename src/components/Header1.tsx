@@ -6,7 +6,7 @@ import { User } from "../App";
 import "./Header1.css";
 
 type Props = {
-  currentUser: User | null;
+  currentUser: User;
 };
 
 export default function Header1({ currentUser }: Props) {

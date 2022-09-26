@@ -42,7 +42,7 @@ function App() {
   let navigate = useNavigate();
 
   function signIn(data: any) {
-    setCurrentUser(data);
+    setCurrentUser(data.user);
     localStorage.token = data.token;
     navigate("/posts");
   }
