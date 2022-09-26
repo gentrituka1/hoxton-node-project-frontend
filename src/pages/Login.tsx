@@ -12,9 +12,7 @@ export default function Login( {signIn}: Props) {
         <form onSubmit={(e) => {
             e.preventDefault()
             let user = {
-                //@ts-ignore
                 login: e.target.login.value,
-                //@ts-ignore
                 password: e.target.password.value
             }
             fetch('http://localhost:4000/login', {
@@ -25,10 +23,10 @@ export default function Login( {signIn}: Props) {
                 body: JSON.stringify(user)
             }).then(res => res.json())
             .then(data => {
-                if(data){
-                    signIn(data)
-                } else {
+                if(data.error){
                     alert(data.error)
+                } else {
+                    signIn(data)
                 }
             })
         }}>

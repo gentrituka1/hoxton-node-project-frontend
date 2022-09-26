@@ -4,11 +4,10 @@ import { User } from '../App';
 import './Signup.css'
 
 type Props = {
-    users: User[];
     signIn: (data: any) => void;
 }
 
-export default function Signup( {users, signIn}: Props) {
+export default function Signup( {signIn}: Props) {
 
     let navigate = useNavigate();
 
@@ -18,15 +17,10 @@ export default function Signup( {users, signIn}: Props) {
         <form onSubmit={(e) => {
             e.preventDefault()
             let newUser = {
-                //@ts-ignore
                 name: e.target.name.value,
-                //@ts-ignore
                 email: e.target.email.value,
-                //@ts-ignore
                 password: e.target.password.value,
-                //@ts-ignore
-                phoneNumber: e.target.phoneNumber.value,
-                itemsOnBag: 0
+                phoneNumber: e.target.phoneNumber.value
             }
 
             fetch('http://localhost:4000/signup', {
@@ -37,10 +31,10 @@ export default function Signup( {users, signIn}: Props) {
                 body: JSON.stringify(newUser)
             }).then(res => res.json())
             .then(data => {
-                if(data){
-                    signIn(data)
-                } else {
+                if(data.error){
                     alert(data.error)
+                } else {
+                    signIn(data)
                 }
             })
         }}>

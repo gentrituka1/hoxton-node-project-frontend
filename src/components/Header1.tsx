@@ -17,7 +17,7 @@ export default function Header1({ currentUser }: Props) {
         <AiOutlineHeart className="heart" />
         <div className="bag">
           <BsBag />
-          <p>{currentUser?.itemsInBag}</p>
+          <p>{}</p>
         </div>
       </div>
       {currentUser ? (
