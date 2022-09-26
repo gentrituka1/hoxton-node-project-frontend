@@ -38,6 +38,7 @@ export type Tag = {
 
 function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [users, setUsers] = useState<User[]>([]);
 
   let navigate = useNavigate();
 
@@ -71,13 +72,20 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:4000/users")
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data);
+  })},[])
+
   return (
     <div className="App">
       <Header1 currentUser={currentUser}/>
       <Header2 />
       <Routes>
-        <Route path='/login' element={<Login  />} />
-        <Route path='/signup' element={<Signup  />} />
+        <Route path='/login' element={<Login signIn={signIn}  />} />
+        <Route path='/signup' element={<Signup  signIn={signIn} users={users}/>} />
       </Routes>
     </div>
   );
