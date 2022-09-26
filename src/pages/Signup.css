@@ -1,0 +1,16 @@
+.main{
+    display: grid;
+    place-content: center;
+    gap: 20px;
+}
+.main form{
+    display: grid;
+    justify-content: start;
+    gap: 20px;
+}
+.main form label{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+    gap: 20px;
+}

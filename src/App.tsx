@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Header1 from "./components/Header1";
-import { useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Header2 from "./components/Header2";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 export type User = {
   id: number;
@@ -36,6 +38,7 @@ export type Tag = {
 
 function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [users, setUsers] = useState<User[]>([]);
 
   let navigate = useNavigate();
 
@@ -69,10 +72,21 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:4000/users")
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data);
+  })},[])
+
   return (
     <div className="App">
       <Header1 currentUser={currentUser}/>
       <Header2 />
+      <Routes>
+        <Route path='/login' element={<Login signIn={signIn}  />} />
+        <Route path='/signup' element={<Signup  signIn={signIn} users={users}/>} />
+      </Routes>
     </div>
   );
 }
