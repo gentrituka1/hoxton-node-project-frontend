@@ -3,18 +3,18 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsBag } from "react-icons/bs";
 import { useState } from "react";
 import { User } from "../App";
-import './Header1.css'
+import "./Header1.css";
 
 type Props = {
-  currentUser: User
+  currentUser: User | null;
 };
 
 export default function Header1({ currentUser }: Props) {
   return (
     <header className="header-1">
       <div className="header-1-icons">
-        <MdOutlineInsertComment className="comment"/>
-        <AiOutlineHeart className="heart"/>
+        <MdOutlineInsertComment className="comment" />
+        <AiOutlineHeart className="heart" />
         <div className="bag">
           <BsBag />
           <p>{currentUser?.itemsInBag}</p>
@@ -22,15 +22,15 @@ export default function Header1({ currentUser }: Props) {
       </div>
       {currentUser ? (
         <div className="header-1-user">
-          <p>{currentUser.name}</p>
+          <p className="user-name">{currentUser.name}</p>
           <div className="header-1-user-image">
             {currentUser.name.charAt(0)}
           </div>
         </div>
       ) : (
         <div className="header-1-signin-sigup">
-          <button>SignIn</button>
-          <button>SignUp</button>
+          <button className="signin-button">SignIn</button>
+          <button className="signup-button">SignUp</button>
         </div>
       )}
     </header>
