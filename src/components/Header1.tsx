@@ -6,7 +6,7 @@ import { User } from "../App";
 import './Header1.css'
 
 type Props = {
-  currentUser: User | null;
+  currentUser: User
 };
 
 export default function Header1({ currentUser }: Props) {
@@ -17,7 +17,7 @@ export default function Header1({ currentUser }: Props) {
         <AiOutlineHeart className="heart"/>
         <div className="bag">
           <BsBag />
-          <p>{currentUser === null ? null : currentUser.itemsInBag}</p>
+          <p>{currentUser?.itemsInBag}</p>
         </div>
       </div>
       {currentUser ? (

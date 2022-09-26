@@ -11,6 +11,9 @@
     display: flex;
     gap: 20px;
 }
+.header-1-user{
+    padding: 20px;
+}
 .heart{
     font-size: 2.2rem;
 }

@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 import Header2 from "./components/Header2";
 
 export type User = {
-  id: Number;
-  email: String;
-  name: String;
-  Password: String;
-  phoneNumber: String;
-  itemsInBag: Number;
+  id: number;
+  email: string;
+  name: string;
+  Password: string;
+  phoneNumber: string;
+  itemsInBag: number;
   posts: Post[];
 };
 
