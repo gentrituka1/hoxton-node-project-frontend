@@ -1,6 +1,6 @@
 import { MdOutlineInsertComment } from "react-icons/md";
 import { AiOutlineHeart } from "react-icons/ai";
-import { BsBag, BsFillBookmarkFill } from "react-icons/bs";
+import { BsFillBookmarkFill } from "react-icons/bs";
 import { useState } from "react";
 import { User } from "../App";
 import "./Header1.css";
@@ -15,7 +15,7 @@ export default function Header1({ currentUser }: Props) {
       <div className="header-1-icons">
         <MdOutlineInsertComment className="comment" />
         <AiOutlineHeart className="heart" />
-        <BsFillBookmarkFill />
+        <BsFillBookmarkFill className="bookmark" />
       </div>
       {currentUser ? (
         <div className="header-1-user">

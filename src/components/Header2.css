@@ -1,0 +1,42 @@
+.header-2{
+    gap: 50px;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    grid-auto-flow: column;
+}
+
+.logo{
+    float: left;
+}
+
+.header-2-pages{
+    float: right;
+    margin-top: 12px;
+}
+
+.posts-button{
+    margin-right: 10px;
+    border: none;
+    font-size: 20px;
+    padding: 3px;
+}
+
+.posts-button:hover{
+    background-color: #afb6af;
+    color: white; 
+}
+
+.create-post-button{
+    float: right;
+    border: 1px solid rgb(233, 49, 49);
+    font-size: 20px;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgb(233, 49, 49);
+    color: white;
+}
+
+.create-post-button:hover{
+    background-color: rgb(233, 100, 100);
+    border: 1px solid rgb(233, 100, 100);
+}

@@ -1,16 +1,22 @@
 .header-1{
-    display: flex;
     gap: 50px;
-    justify-content: center;
     align-items: center;
     border-bottom: 1px solid grey;
+    grid-auto-flow: column;
+    margin-top: 10px;
+    margin-right: 250px;
+    margin-left: 250px;
 }
+
+.header-1-signin-sigup{
+    float: right;
+}
+
 .header-1-icons{
     font-size: 2rem;
     color: grey;
-    display: flex;
     gap: 20px;
-    margin-left: 500px;
+    float: right;
 }
 .header-1-user{
     padding: 20px;
@@ -24,6 +30,10 @@
     font-size: 2.2rem;
 }
 .comment{
+    font-size: 2.2rem;
+}
+
+.bookmark{
     font-size: 2.2rem;
 }
 
