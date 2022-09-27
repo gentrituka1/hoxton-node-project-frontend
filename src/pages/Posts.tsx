@@ -38,11 +38,7 @@ export default function Posts() {
             <h3>{post.title}</h3>
             <img src={post.image} alt={post.title} className="image" />
             <h3>{post.content}</h3>
-            <h3>{post.price}</h3>
-            <h3>{post.saved}</h3>
-            <h3>{post.toSell}</h3>
-            <h3>{post.toBuy}</h3>
-            <h3>{post.userId}</h3>
+            <h3>{post.price}$</h3>
               {post.tags.map((tag) => (
                 <div key={tag.id}>
                   <h3>Category: {tag.name}</h3>
