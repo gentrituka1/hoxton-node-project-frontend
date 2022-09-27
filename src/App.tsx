@@ -72,7 +72,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header1 currentUser={currentUser} />
+      {/* @ts-ignore */}
+      <Header1 currentUser={currentUser} signOut={signOut} />
       <Header2 />
       <Routes>
         <Route index element={<Navigate to='/posts'/>} />

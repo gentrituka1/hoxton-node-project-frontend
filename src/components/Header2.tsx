@@ -10,9 +10,11 @@ export default function Header2() {
         alt="merrjep"
         width={350}
       />
+      <button className="posts-button">POSTS</button>
       <div className="header-2-pages">
-        <button className="posts-button">POSTS</button>
-        <button className="create-post-button">+ CREATE A POST</button>
+        <button className="create-post-button">
+          ➕ CREATE A POST
+          </button>
       </div>
     </header>
   );

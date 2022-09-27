@@ -1,40 +1,73 @@
-.header-1{
-    gap: 50px;
-    align-items: center;
-    border-bottom: 1px solid grey;
-    grid-auto-flow: column;
-    margin-top: 10px;
-    margin-right: 250px;
-    margin-left: 250px;
+:root{
+    --hover-color: #808080b9;
 }
 
-.header-1-signin-sigup{
-    float: right;
+.header-1{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid grey;
 }
+.header-1-user{
+    display: grid;
+    grid-auto-flow: column;
+    padding: 5px 10px;
+    border: 1px solid black;
+    gap: 20px;
+    cursor: pointer;
+}
+.header-1-user p{
+    display: grid;
+    align-items: center;
+}
+.user-name{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.header-1-user-image{
+    border: 1px solid grey;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    background-color: royalblue;
+    color: white;
+    text-align: center;
+    font-size: 1.7rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 30px;
+}
+
 
 .header-1-icons{
     font-size: 2rem;
     color: grey;
+    display: flex;
     gap: 20px;
-    float: right;
-}
-.header-1-user{
-    padding: 20px;
-}
-
-.user-name{
-    border: 1px solid black;
+    align-items: center
 }
 
 .heart{
     font-size: 2.2rem;
+    cursor: pointer;
+}
+.heart:hover{
+    color: var(--hover-color)
 }
 .comment{
     font-size: 2.2rem;
+    cursor: pointer;
 }
-
+.comment:hover{
+    color: var(--hover-color)
+}
 .bookmark{
     font-size: 2.2rem;
+    cursor: pointer;
+}
+.bookmark:hover{
+    color: var(--hover-color)
 }
 
 .signin-button{
