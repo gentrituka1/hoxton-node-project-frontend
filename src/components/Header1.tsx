@@ -10,6 +10,7 @@ type Props = {
 };
 
 export default function Header1({ currentUser }: Props) {
+
   return (
     <header className="header-1">
       <div className="header-1-icons">
@@ -21,7 +22,7 @@ export default function Header1({ currentUser }: Props) {
         <div className="header-1-user">
           <p className="user-name">{currentUser.name}</p>
           <div className="header-1-user-image">
-            {currentUser.name.charAt(0)}
+            <p>{currentUser.name.charAt(0).toUpperCase()}</p>
           </div>
         </div>
       ) : (

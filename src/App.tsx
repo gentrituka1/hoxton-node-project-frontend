@@ -60,11 +60,11 @@ function App() {
         },
       })
         .then((res) => res.json())
-        .then((result) => {
-          if (result.error) {
-            alert(result.error);
+        .then((data) => {
+          if (data.error) {
+            alert(data.error);
           } else {
-            signIn(result.data);
+            signIn(data);
           }
         });
     }
@@ -72,7 +72,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header1 currentUser={currentUser ? currentUser : null} />
+      <Header1 currentUser={currentUser} />
       <Header2 />
       <Routes>
         <Route index element={<Navigate to='/posts'/>} />
