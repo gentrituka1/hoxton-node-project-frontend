@@ -21,14 +21,13 @@ type Tag = {
   posts: Post[];
 };
 
-export default function Posts() {
-  const [posts, setPosts] = useState<Post[]>([]);
+type Props = {
+  posts: Post[];
+  searchValue: string;
+}
 
-  useEffect(() => {
-    fetch("http://localhost:4000/posts")
-      .then((resp) => resp.json())
-      .then((postsFromServer) => setPosts(postsFromServer));
-  }, []);
+export default function Posts( { posts, searchValue }: Props) {
+  
 
   return (
     <div className="main-div">

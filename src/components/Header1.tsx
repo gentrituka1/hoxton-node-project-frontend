@@ -2,7 +2,7 @@ import { MdOutlineInsertComment } from "react-icons/md";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { useState } from "react";
-import { User } from "../App";
+import { Post, User } from "../App";
 import "./Header1.css";
 import { useNavigate } from "react-router-dom";
 
@@ -12,21 +12,33 @@ type Props = {
 };
 
 export default function Header1({ currentUser, signOut }: Props) {
+  const [searchValue, setSearchValue] = useState("");
+  
   let navigate = useNavigate();
 
   return (
     <header className="header-1">
       <div className="header-1-icons">
-        <MdOutlineInsertComment className="comment" />
-        <AiOutlineHeart className="heart" />
         <BsFillBookmarkFill className="bookmark" />
+        <input onChange={(event) => {
+          setSearchValue(event.target.value.toLowerCase())
+        }} type="text" placeholder="Search for posts..." />
       </div>
       {currentUser ? (
-        <div className="header-1-user">
-          <p className="user-name">{currentUser.name.toUpperCase()}</p>
-          <div className="header-1-user-image">
-            <p>{currentUser.name.charAt(0).toUpperCase()}</p>
+        <div className="header-1-user-signout">
+          <div className="header-1-user">
+            <p className="user-name">{currentUser.name.toUpperCase()}</p>
+            <div className="header-1-user-image">
+              <p>{currentUser.name.charAt(0).toUpperCase()}</p>
+            </div>
           </div>
+          <button
+            onClick={() => {
+              signOut();
+            }}
+          >
+            Sign Out
+          </button>
         </div>
       ) : (
         <div className="header-1-signin-sigup">

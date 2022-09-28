@@ -36,10 +36,19 @@ export type Tag = {
   posts: Post[];
 };
 
-function App() {
+function App(searchValue: string) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   let navigate = useNavigate();
+
+  useEffect(() => {
+    fetch("http://localhost:4000/posts")
+      .then((resp) => resp.json())
+      .then((postsFromServer) => setPosts(postsFromServer));
+  }, []);
+
+  
 
   function signIn(data: any) {
     setCurrentUser(data.user);
@@ -72,12 +81,11 @@ function App() {
 
   return (
     <div className="App">
-      {/* @ts-ignore */}
-      <Header1 currentUser={currentUser} signOut={signOut} />
-      <Header2 />
+      <Header1 currentUser={currentUser} signOut={signOut} setPosts={setPosts} posts={posts} />
+      {currentUser ? <Header2 /> : null}
       <Routes>
         <Route index element={<Navigate to='/posts'/>} />
-        <Route path='/posts' element={<Posts />} />
+        <Route path='/posts' element={<Posts posts={posts} searchValue={searchValue}/>} />
         <Route path='/login' element={<Login signIn={signIn}  />} />
         <Route path='/signup' element={<Signup  signIn={signIn}/>} />
       </Routes>

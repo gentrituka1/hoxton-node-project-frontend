@@ -70,6 +70,18 @@
     color: var(--hover-color)
 }
 
+.header-1-user-signout{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+    align-items: center;
+}
+.header-1-user-signout button{
+    width: 100%;
+    height: 60%;
+    cursor: pointer;
+}
+
 .signin-button{
     background-color: white; 
     color: black; 
@@ -78,6 +90,7 @@
     padding: 5px;
     border-radius: 5px;
     box-shadow: 0 3px #999;
+    cursor: pointer;
 }
 
 .signin-button:hover{
@@ -99,6 +112,7 @@
     padding: 5px;
     border-radius: 5px;
     box-shadow: 0 3px #999;
+    cursor: pointer;
 }
 
 .signup-button:hover{
