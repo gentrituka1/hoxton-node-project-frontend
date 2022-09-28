@@ -34,17 +34,30 @@ export default function Posts() {
     <div className="main-div">
       <div className="posts-div">
         {posts.map((post) => (
-          <div key={post.id}>
-            <h3>{post.title}</h3>
-            <img src={post.image} alt={post.title} className="image" />
-            <h3>{post.content}</h3>
-            <h3>{post.price}$</h3>
-              {post.tags.map((tag) => (
-                <div key={tag.id}>
-                  <h3>Category: {tag.name}</h3>
-                  <p>---------------------------------------------</p>
+          <div className="single-post">
+            <div key={post.id}>
+              <div className="post-content">
+                <img src={post.image} alt={post.title} className="image" />
+                <div className="post-content-text">
+                  <h3>
+                    <b>Title: </b> {post.title}
+                  </h3>
+                  <h3>
+                    <b>Description: </b> {post.content}
+                  </h3>
+                  <h3>
+                    <b>Price: </b> {post.price}$
+                  </h3>
+                  {post.tags.map((tag) => (
+                    <div key={tag.id}>
+                      <h3>
+                        <b>Category: </b> {tag.name}
+                      </h3>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            </div>
           </div>
         ))}
       </div>

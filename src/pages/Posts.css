@@ -6,3 +6,28 @@
     width: 200px;
     height: 200px;
 }
+
+.single-post{
+    display: grid;
+    grid-auto-flow: row;
+    background-color: rgba(220, 220, 220, 0.232);
+    width: 700px;
+    margin: 20px 250px;
+    border: thin solid rgba(128, 128, 128, 0.288);
+    padding: 15px;
+}
+
+.post-content{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.post-content-text{
+    display: grid;
+    grid-auto-flow: row;
+    padding: 20px;
+}
+
+.post-content-text h3{
+    font-weight: 300;
+}
