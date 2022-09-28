@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BsTags } from "react-icons/bs";
+import { BsFillBookmarkFill, BsTags } from "react-icons/bs";
 import "./Posts.css";
 
 type Post = {
@@ -55,6 +55,12 @@ export default function Posts() {
                       </h3>
                     </div>
                   ))}
+                  <p>
+                    <b>Save Post: </b>
+                    <button className="save-button">
+                      <BsFillBookmarkFill />
+                    </button>
+                  </p>
                 </div>
               </div>
             </div>
