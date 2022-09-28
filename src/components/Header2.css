@@ -9,6 +9,7 @@
 
 .logo{
     float: left;
+    cursor: pointer;
 }
 
 .header-2-pages{
@@ -25,6 +26,7 @@
 .posts-button:hover{
     background-color: #afb6af;
     color: white; 
+    cursor: pointer;
 }
 
 .create-post-button{
@@ -43,4 +45,5 @@
 .create-post-button:hover{
     background-color: rgb(233, 100, 100);
     border: 1px solid rgb(233, 100, 100);
+    cursor: pointer;
 }

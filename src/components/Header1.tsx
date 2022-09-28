@@ -4,7 +4,7 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { useState } from "react";
 import { Post, User } from "../App";
 import "./Header1.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type Props = {
   currentUser: User;
@@ -12,17 +12,23 @@ type Props = {
 };
 
 export default function Header1({ currentUser, signOut }: Props) {
-  const [searchValue, setSearchValue] = useState("");
   
   let navigate = useNavigate();
 
   return (
     <header className="header-1">
       <div className="header-1-icons">
-        <BsFillBookmarkFill className="bookmark" />
-        <input onChange={(event) => {
-          setSearchValue(event.target.value.toLowerCase())
-        }} type="text" placeholder="Search for posts..." />
+      <Link to="/posts">
+      <img
+        className="logo"
+        src="https://www.merrjep.com/Content/Images/Kosovo/Kosovo.svg"
+        alt="merrjep"
+        width={350}
+      />
+      </Link>
+      <Link to="/posts">
+        <button className="posts-button">POSTS</button>
+      </Link>
       </div>
       {currentUser ? (
         <div className="header-1-user-signout">

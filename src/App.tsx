@@ -81,6 +81,7 @@ function App(searchValue: string) {
 
   return (
     <div className="App">
+      {/* @ts-ignore */}
       <Header1 currentUser={currentUser} signOut={signOut} setPosts={setPosts} posts={posts} />
       {currentUser ? <Header2 /> : null}
       <Routes>
