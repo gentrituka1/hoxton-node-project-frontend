@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BsBookmark, BsFillBookmarkFill, BsTags } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import "./Posts.css";
 
 type Post = {
@@ -25,12 +26,11 @@ type Props = {
   posts: Post[];
   setPosts: (posts: Post[]) => void;
   searchValue: string;
-}
+};
 
-export default function Posts( { posts, setPosts, searchValue }: Props) {
+export default function Posts({ posts, setPosts, searchValue }: Props) {
   const [savedPosts, setSavedPosts] = useState<Post[]>([]);
   const [saved, setSaved] = useState<boolean>(false);
-
 
   return (
     <div className="main-div">
@@ -45,10 +45,6 @@ export default function Posts( { posts, setPosts, searchValue }: Props) {
                     <b>Title: </b> {post.title}
                   </h3>
                   <h3>
-                    <b>Description: </b> 
-                  </h3>
-                  <p>{post.content}</p>
-                  <h3>
                     <b>Price: </b> {post.price}$
                   </h3>
                   {post.tags.map((tag) => (
@@ -59,29 +55,38 @@ export default function Posts( { posts, setPosts, searchValue }: Props) {
                     </div>
                   ))}
                 </div>
-                <button onClick={() => {
+                <button
+                  onClick={() => {
                     fetch(`http://localhost:4000/posts/${post.id}`, {
                       method: "PATCH",
                       headers: {
                         "Content-Type": "application/json",
                       },
                       body: JSON.stringify({
-                        saved: !post.saved
+                        saved: !post.saved,
+                      }),
+                    })
+                      .then(() => {
+                        fetch(`http://localhost:4000/posts`)
+                          .then((resp) => resp.json())
+                          .then((postsFromServer) => setPosts(postsFromServer));
                       })
-                    }).then(() => {
-                      fetch(`http://localhost:4000/posts`)
-                      .then((resp) => resp.json())
-                      .then((postsFromServer) => setPosts(postsFromServer));
-                    })
-                    .then(() => {
-                      fetch("http://localhost:4000/savedPosts")
-                      .then((resp) => resp.json())
-                      .then((savedPostsFromServer) => setSavedPosts(savedPostsFromServer));
-                    })
-                    setSaved(!saved)
-                }} className="saved-button">
-                    {saved ? <BsFillBookmarkFill /> : <BsBookmark />}
+                      .then(() => {
+                        fetch("http://localhost:4000/savedPosts")
+                          .then((resp) => resp.json())
+                          .then((savedPostsFromServer) =>
+                            setSavedPosts(savedPostsFromServer)
+                          );
+                      });
+                    setSaved(!saved);
+                  }}
+                  className="saved-button"
+                >
+                  {saved ? <BsFillBookmarkFill /> : <BsBookmark />}
                 </button>
+                <Link to={`/posts/${post.id}`}>
+                  <button>More details...</button>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Header1 from "./components/Header1";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
@@ -7,6 +6,7 @@ import Header2 from "./components/Header2";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Posts from "./pages/Posts";
+import { PostsDetails } from "./pages/PostsDetails";
 
 export type User = {
   id: number;
@@ -48,8 +48,6 @@ function App(searchValue: string) {
       .then((postsFromServer) => setPosts(postsFromServer));
   }, []);
 
-  
-
   function signIn(data: any) {
     setCurrentUser(data.user);
     localStorage.token = data.token;
@@ -82,13 +80,28 @@ function App(searchValue: string) {
   return (
     <div className="App">
       {/* @ts-ignore */}
-      <Header1 currentUser={currentUser} signOut={signOut} setPosts={setPosts} posts={posts} />
+      <Header1
+        currentUser={currentUser}
+        signOut={signOut}
+        setPosts={setPosts}
+        posts={posts}
+      />
       {currentUser ? <Header2 /> : null}
       <Routes>
-        <Route index element={<Navigate to='/posts'/>} />
-        <Route path='/posts' element={<Posts setPosts={setPosts} posts={posts} searchValue={searchValue}/>} />
-        <Route path='/login' element={<Login signIn={signIn}  />} />
-        <Route path='/signup' element={<Signup  signIn={signIn}/>} />
+        <Route index element={<Navigate to="/posts" />} />
+        <Route path="/posts/:id" element={<PostsDetails />} />
+        <Route
+          path="/posts"
+          element={
+            <Posts
+              setPosts={setPosts}
+              posts={posts}
+              searchValue={searchValue}
+            />
+          }
+        />
+        <Route path="/login" element={<Login signIn={signIn} />} />
+        <Route path="/signup" element={<Signup signIn={signIn} />} />
       </Routes>
     </div>
   );
