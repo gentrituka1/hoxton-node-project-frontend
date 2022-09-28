@@ -54,6 +54,9 @@ export default function Posts({ posts, setPosts, searchValue }: Props) {
                       </h3>
                     </div>
                   ))}
+                  <Link to={`/posts/${post.id}`}>
+                    <button className="details-button">More details...</button>
+                  </Link>
                 </div>
                 <button
                   onClick={() => {
@@ -84,9 +87,6 @@ export default function Posts({ posts, setPosts, searchValue }: Props) {
                 >
                   {saved ? <BsFillBookmarkFill /> : <BsBookmark />}
                 </button>
-                <Link to={`/posts/${post.id}`}>
-                  <button>More details...</button>
-                </Link>
               </div>
             </div>
           </div>

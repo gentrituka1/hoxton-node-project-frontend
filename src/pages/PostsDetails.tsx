@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BsTag } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import { Post } from "../App";
+import "./PostsDetails.css";
 
 export function PostsDetails() {
   const [post, setPost] = useState<Post | null>(null);
@@ -16,15 +17,28 @@ export function PostsDetails() {
   if (post === null) return <h1>Just a sec... 🙏</h1>;
 
   return (
-    <section className="post-detail main-wrapper">
-      <img src={post.image} alt={post.title} />
-      <div className="post-detail__side">
+    <section className="post-details">
+      <img src={post.image} alt={post.title} width="400px" />
+      <div className="post-detail-side">
         <h3></h3>
-        <h2>{post.title}</h2>
-        <p>{post.content}</p>
-        <p>{post.price}</p>
+        <u>
+          <h2>
+            Title:
+            {post.title}
+          </h2>
+        </u>
+        <p>
+          <b>Description: </b>
+          {post.content}
+        </p>
+        <p>
+          <u>
+            <b>Pirce:</b>
+          </u>
+          {post.price} $
+        </p>
         <Link to={"/posts"}>
-          <button>Go Back</button>
+          <button className="back-button">Go Back</button>
         </Link>
       </div>
     </section>
