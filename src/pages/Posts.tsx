@@ -29,6 +29,7 @@ type Props = {
 
 export default function Posts( { posts, setPosts, searchValue }: Props) {
   const [savedPosts, setSavedPosts] = useState<Post[]>([]);
+  const [saved, setSaved] = useState<boolean>(false);
 
 
   return (
@@ -77,8 +78,9 @@ export default function Posts( { posts, setPosts, searchValue }: Props) {
                       .then((resp) => resp.json())
                       .then((savedPostsFromServer) => setSavedPosts(savedPostsFromServer));
                     })
+                    setSaved(!saved)
                 }} className="saved-button">
-                    {post.saved ? <BsFillBookmarkFill /> : <BsBookmark />}
+                    {saved ? <BsFillBookmarkFill /> : <BsBookmark />}
                 </button>
               </div>
             </div>
