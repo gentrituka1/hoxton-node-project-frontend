@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BsFillBookmarkFill, BsTags } from "react-icons/bs";
+import { BsBookmark, BsFillBookmarkFill, BsTags } from "react-icons/bs";
 import "./Posts.css";
 
 type Post = {
@@ -23,11 +23,13 @@ type Tag = {
 
 type Props = {
   posts: Post[];
+  setPosts: (posts: Post[]) => void;
   searchValue: string;
 }
 
-export default function Posts( { posts, searchValue }: Props) {
-  
+export default function Posts( { posts, setPosts, searchValue }: Props) {
+  const [savedPosts, setSavedPosts] = useState<Post[]>([]);
+
 
   return (
     <div className="main-div">
@@ -42,8 +44,9 @@ export default function Posts( { posts, searchValue }: Props) {
                     <b>Title: </b> {post.title}
                   </h3>
                   <h3>
-                    <b>Description: </b> {post.content}
+                    <b>Description: </b> 
                   </h3>
+                  <p>{post.content}</p>
                   <h3>
                     <b>Price: </b> {post.price}$
                   </h3>
@@ -54,13 +57,12 @@ export default function Posts( { posts, searchValue }: Props) {
                       </h3>
                     </div>
                   ))}
-                  <p>
-                    <b>Save Post: </b>
-                    <button className="save-button">
-                      <BsFillBookmarkFill />
-                    </button>
-                  </p>
                 </div>
+                <button onClick={() => {
+                  
+                }} className="saved-button">
+                    {post.saved ? <BsFillBookmarkFill /> : <BsBookmark />}
+                </button>
               </div>
             </div>
           </div>

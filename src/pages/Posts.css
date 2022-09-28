@@ -38,7 +38,7 @@
     font-weight: 300;
 }
 
-.save-button{
+/* .save-button{
     width: 50px;
     background-color: white; 
     color: black; 
@@ -58,4 +58,10 @@
     background-color: #3e443e;
     box-shadow: 0 2px #666;
     transform: translateY(3px);
+} */
+
+.saved-button{
+    all: unset;
+    font-size: 2rem;
+    cursor: pointer;
 }

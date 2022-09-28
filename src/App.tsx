@@ -86,7 +86,7 @@ function App(searchValue: string) {
       {currentUser ? <Header2 /> : null}
       <Routes>
         <Route index element={<Navigate to='/posts'/>} />
-        <Route path='/posts' element={<Posts posts={posts} searchValue={searchValue}/>} />
+        <Route path='/posts' element={<Posts setPosts={setPosts} posts={posts} searchValue={searchValue}/>} />
         <Route path='/login' element={<Login signIn={signIn}  />} />
         <Route path='/signup' element={<Signup  signIn={signIn}/>} />
       </Routes>
