@@ -59,7 +59,24 @@ export default function Posts( { posts, setPosts, searchValue }: Props) {
                   ))}
                 </div>
                 <button onClick={() => {
-                  
+                    fetch(`http://localhost:4000/posts/${post.id}`, {
+                      method: "PATCH",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        saved: !post.saved
+                      })
+                    }).then(() => {
+                      fetch(`http://localhost:4000/posts`)
+                      .then((resp) => resp.json())
+                      .then((postsFromServer) => setPosts(postsFromServer));
+                    })
+                    .then(() => {
+                      fetch("http://localhost:4000/savedPosts")
+                      .then((resp) => resp.json())
+                      .then((savedPostsFromServer) => setSavedPosts(savedPostsFromServer));
+                    })
                 }} className="saved-button">
                     {post.saved ? <BsFillBookmarkFill /> : <BsBookmark />}
                 </button>
