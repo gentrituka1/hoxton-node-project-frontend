@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { Post } from "../App";
 import "./Header2.css";
 
 export default function Header2() {
-  const [searchValue, setSearchValue] = useState("");
   return (
     <header className="header-2">
       <Link className="links" to="/savedPosts">
-      <BsFillBookmarkFill className="bookmark" />
+        <BsFillBookmarkFill className="bookmark" />
       </Link>
-        <input onChange={(event) => {
-          setSearchValue(event.target.value.toLowerCase())
-        }} type="text" placeholder="Search for posts..." />
+
       <div className="header-2-pages">
-        <Link to="/createPost"><button className="create-post-button">
-          ➕ CREATE A POST
-          </button>
+        <Link to="/createPost">
+          <button className="create-post-button">➕ CREATE A POST</button>
         </Link>
       </div>
     </header>

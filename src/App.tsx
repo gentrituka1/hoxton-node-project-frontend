@@ -9,6 +9,7 @@ import Posts from "./pages/Posts";
 import { PostsDetails } from "./pages/PostsDetails";
 import CreatePost from "./pages/createPost";
 import SavedPosts from "./pages/savedPosts";
+import { SearchPage } from "./components/SearchPage";
 
 export type User = {
   id: number;
@@ -43,9 +44,9 @@ type Props = {
   searchValue: string;
   setSavedPosts: (savedPosts: Post[]) => void;
   saved: boolean;
-}
+};
 
-function App({searchValue, savedPosts, setSavedPosts, saved}: Props) {
+function App({ searchValue, savedPosts, setSavedPosts, saved }: Props) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
 
@@ -101,18 +102,15 @@ function App({searchValue, savedPosts, setSavedPosts, saved}: Props) {
         <Route path="/posts/:id" element={<PostsDetails />} />
         <Route
           path="/posts"
-          element={
-            <Posts
-              setPosts={setPosts}
-              posts={posts}
-              searchValue={searchValue}
-            />
-          }
+          element={<Posts setPosts={setPosts} posts={posts} />}
         />
         <Route path="/login" element={<Login signIn={signIn} />} />
         <Route path="/signup" element={<Signup signIn={signIn} />} />
         <Route path="/createPost" element={<CreatePost />} />
-        <Route path="/savedPosts" element={<SavedPosts setPosts={setPosts}/>} />
+        <Route
+          path="/savedPosts"
+          element={<SavedPosts setPosts={setPosts} />}
+        />
       </Routes>
     </div>
   );
