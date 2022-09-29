@@ -6,10 +6,10 @@ import { Post } from '../App';
 type Props = {
     post: Post
     setPosts: (posts: Post[]) => void
-    setSavedPosts: (savedPosts: Post[]) => void
 }
 
-export default function ItemRow( { post, setPosts, setSavedPosts }: Props) {
+export default function ItemRow( { post, setPosts}: Props) {
+    const [savedPosts, setSavedPosts] = useState<Post[]>([]);
 
   return (
     <div className="single-post">
@@ -36,25 +36,28 @@ export default function ItemRow( { post, setPosts, setSavedPosts }: Props) {
                 </div>
                 <button
                   onClick={() => {
-                    Promise.all([
-                      fetch(`http://localhost:4000/posts/${post.id}`, {
-                        method: "PATCH",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                          saved: !post.saved,
-                        }),
+                    return fetch(`http://localhost:4000/posts/${post.id}`, {
+                      method: "PATCH",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        saved: !post.saved,
                       }),
-                      fetch(`http://localhost:4000/posts`)
-                        .then((resp) => resp.json())
-                        .then((postsFromServer) => setPosts(postsFromServer)),
-                      fetch("http://localhost:4000/savedPosts")
-                        .then((resp) => resp.json())
-                        .then((savedPostsFromServer) =>
-                          setSavedPosts(savedPostsFromServer)
-                        )
-                    ])
+                    })
+                      .then(() => {
+                        return fetch(`http://localhost:4000/posts`)
+                          .then((resp) => resp.json())
+                          .then((postsFromServer) => setPosts(postsFromServer));
+                      })
+                      .then(() => {
+                        return fetch("http://localhost:4000/savedPosts")
+                          .then((resp) => resp.json())
+                          .then((savedPostsFromServer) =>
+                            setSavedPosts(savedPostsFromServer)
+                          );
+                      });
+                    
                   }}
                   className="saved-button"
                 >

@@ -8,14 +8,13 @@ type Props = {
     savedPosts: Post[]
     setSavedPosts: (savedPosts: Post[]) => void
     setPosts: (posts: Post[]) => void
-    saved: boolean
 }
 
-export default function savedPosts( { savedPosts, setPosts, setSavedPosts, saved }: Props) {
+export default function savedPosts( { savedPosts, setPosts, setSavedPosts }: Props) {
   return (
     <main className='main'>
         <h1>Saved Posts</h1>
-        {savedPosts ? savedPosts.map((post) => (
+        {savedPosts.filter(post => post.saved === true).map((post) => (
             <div className="single-post">
             <div key={post.id}>
               <div className="post-content">
@@ -64,12 +63,12 @@ export default function savedPosts( { savedPosts, setPosts, setSavedPosts, saved
                   }}
                   className="saved-button"
                 >
-                  {saved ? <BsFillBookmarkFill className="saved-btn"/> : <BsBookmark />}
+                  {post.saved ? <BsFillBookmarkFill className="saved-btn"/> : <BsBookmark />}
                 </button>
               </div>
             </div>
           </div>
-        )) : <h1 className='no-saved-posts'>No saved posts for you my friend!</h1>}
+        ))}
     </main>
   )
 }

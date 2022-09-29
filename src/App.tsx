@@ -112,7 +112,7 @@ function App({searchValue, savedPosts, setSavedPosts, saved}: Props) {
         <Route path="/login" element={<Login signIn={signIn} />} />
         <Route path="/signup" element={<Signup signIn={signIn} />} />
         <Route path="/createPost" element={<CreatePost />} />
-        <Route path="/savedPosts" element={<SavedPosts savedPosts={savedPosts} setPosts={setPosts} setSavedPosts={setSavedPosts} saved={saved}/>} />
+        <Route path="/savedPosts" element={<SavedPosts setPosts={setPosts}/>} />
       </Routes>
     </div>
   );

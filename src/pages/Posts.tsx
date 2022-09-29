@@ -30,14 +30,14 @@ type Props = {
 };
 
 export default function Posts({ posts, setPosts, searchValue }: Props) {
-  const [savedPosts, setSavedPosts] = useState<Post[]>([]);
+  
   
 
   return (
     <div className="main-div">
       <div className="posts-div">
         {posts.map((post) => (
-          <ItemRow post={post}  setPosts={setPosts} setSavedPosts={setSavedPosts}  />
+          <ItemRow post={post}  setPosts={setPosts}  />
         ))}
       </div>
     </div>
