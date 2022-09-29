@@ -56,7 +56,15 @@ export default function ItemRow( { post, setPosts}: Props) {
                 >
                   {post.saved ? <BsFillBookmarkFill className="saved-btn"/> : <BsBookmark />}
                 </button>
-                <button className='delete-button'><TiDelete className='delete-btn'/></button>
+                <button onClick={() => {
+                  return fetch(`http://localhost:4000/posts/${post.id}`, {
+                    method: "DELETE"
+                  }).then(() => {
+                    return fetch(`http://localhost:4000/posts`)
+                    .then((resp) => resp.json())
+                    .then(postsFromServer => setPosts(postsFromServer))
+                  })
+                }} className='delete-button'><TiDelete className='delete-btn'/></button>
               </div>
             </div>
           </div>
