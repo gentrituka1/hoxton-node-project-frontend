@@ -26,13 +26,13 @@ export function PostsDetails() {
     <section className="post-details">
       <img src={post.image} alt={post.title} width="400px" />
       <div className="post-detail-side">
-        <h3></h3>
-        <u>
           <h2>
-            Title:
-            {post.title}
+            <u>
+            Title
+            </u>
+            <span>: {post.title}</span>
           </h2>
-        </u>
+        
         <p>
           <b>Description: </b>
           {post.content}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { Post } from '../App';
+import {TiDelete} from 'react-icons/ti';
 
 type Props = {
     post: Post
@@ -55,6 +56,7 @@ export default function ItemRow( { post, setPosts}: Props) {
                 >
                   {post.saved ? <BsFillBookmarkFill className="saved-btn"/> : <BsBookmark />}
                 </button>
+                <button className='delete-button'><TiDelete className='delete-btn'/></button>
               </div>
             </div>
           </div>

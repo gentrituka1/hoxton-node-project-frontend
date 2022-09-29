@@ -75,6 +75,16 @@
     color: #afb6af;
 }
 
+.delete-button{
+    all: unset;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.delete-btn{
+    color: red;
+}
+
 .details-button{
     background-color: white; 
     color: black; 

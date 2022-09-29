@@ -11,3 +11,6 @@
     display: grid;
     justify-items: start;
 }
+.buy-sell{
+    padding: 10px;
+}
