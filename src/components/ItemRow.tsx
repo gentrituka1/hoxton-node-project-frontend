@@ -9,7 +9,6 @@ type Props = {
 }
 
 export default function ItemRow( { post, setPosts}: Props) {
-    const [savedPosts, setSavedPosts] = useState<Post[]>([]);
 
   return (
     <div className="single-post">
@@ -50,13 +49,6 @@ export default function ItemRow( { post, setPosts}: Props) {
                           .then((resp) => resp.json())
                           .then((postsFromServer) => setPosts(postsFromServer));
                       })
-                      .then(() => {
-                        return fetch("http://localhost:4000/savedPosts")
-                          .then((resp) => resp.json())
-                          .then((savedPostsFromServer) =>
-                            setSavedPosts(savedPostsFromServer)
-                          );
-                      });
                     
                   }}
                   className="saved-button"

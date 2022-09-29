@@ -1,73 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { Post } from '../App'
+import ItemRow from '../components/ItemRow'
 import './savedPosts.css'
 
 type Props = {
-    savedPosts: Post[]
-    setSavedPosts: (savedPosts: Post[]) => void
     setPosts: (posts: Post[]) => void
 }
 
-export default function savedPosts( { savedPosts, setPosts, setSavedPosts }: Props) {
+export default function savedPosts( { setPosts }: Props) {
+    const [savedPosts, setSavedPosts] = useState<Post[]>([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:4000/savedPosts`)
+        .then(r => r.json())
+        .then(savedPostsFromServer => setSavedPosts(savedPostsFromServer) )
+    }, [])
+
+
   return (
     <main className='main'>
         <h1>Saved Posts</h1>
         {savedPosts.filter(post => post.saved === true).map((post) => (
-            <div className="single-post">
-            <div key={post.id}>
-              <div className="post-content">
-                <img src={post.image} alt={post.title} className="image" />
-                <div className="post-content-text">
-                  <h3>
-                    <b>Title: </b> {post.title}
-                  </h3>
-                  <h3>
-                    <b>Price: </b> {post.price}$
-                  </h3>
-                  {post.tags.map((tag) => (
-                    <div key={tag.id}>
-                      <h3>
-                        <b>Category: </b> {tag.name}
-                      </h3>
-                    </div>
-                  ))}
-                  <Link to={`/posts/${post.id}`}>
-                    <button className="details-button">More details...</button>
-                  </Link>
-                </div>
-                <button
-                  onClick={() => {
-                    return fetch(`http://localhost:4000/posts/${post.id}`, {
-                      method: "PATCH",
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                      body: JSON.stringify({
-                        saved: !post.saved,
-                      }),
-                    })
-                      .then(() => {
-                        return fetch(`http://localhost:4000/posts`)
-                          .then((resp) => resp.json())
-                          .then((postsFromServer) => setPosts(postsFromServer));
-                      })
-                      .then(() => {
-                        return fetch("http://localhost:4000/savedPosts")
-                          .then((resp) => resp.json())
-                          .then((savedPostsFromServer) =>
-                            setSavedPosts(savedPostsFromServer)
-                          );
-                      });
-                  }}
-                  className="saved-button"
-                >
-                  {post.saved ? <BsFillBookmarkFill className="saved-btn"/> : <BsBookmark />}
-                </button>
-              </div>
-            </div>
-          </div>
+            <ItemRow post={post} setPosts={setPosts}/>
         ))}
     </main>
   )
