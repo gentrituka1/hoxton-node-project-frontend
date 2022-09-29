@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import Posts from "./pages/Posts";
 import { PostsDetails } from "./pages/PostsDetails";
 import CreatePost from "./pages/createPost";
+import SavedPosts from "./pages/savedPosts";
 
 export type User = {
   id: number;
@@ -37,7 +38,14 @@ export type Tag = {
   posts: Post[];
 };
 
-function App(searchValue: string) {
+type Props = {
+  savedPosts: Post[];
+  searchValue: string;
+  setSavedPosts: (savedPosts: Post[]) => void;
+  saved: boolean;
+}
+
+function App({searchValue, savedPosts, setSavedPosts, saved}: Props) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
 
@@ -104,6 +112,7 @@ function App(searchValue: string) {
         <Route path="/login" element={<Login signIn={signIn} />} />
         <Route path="/signup" element={<Signup signIn={signIn} />} />
         <Route path="/createPost" element={<CreatePost />} />
+        <Route path="/savedPosts" element={<SavedPosts savedPosts={savedPosts} setPosts={setPosts} setSavedPosts={setSavedPosts} saved={saved}/>} />
       </Routes>
     </div>
   );

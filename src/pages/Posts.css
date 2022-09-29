@@ -7,12 +7,17 @@
     height: 200px;
 }
 
+.posts-div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .single-post{
     display: grid;
     grid-auto-flow: row;
     background-color: rgba(220, 220, 220, 0.232);
     width: 700px;
-    margin: 20px 250px;
+    margin: 20px 100px;
     border: thin solid rgba(128, 128, 128, 0.288);
     padding: 15px;
 }
@@ -64,6 +69,10 @@
     all: unset;
     font-size: 2rem;
     cursor: pointer;
+}
+
+.saved-btn{
+    color: #afb6af;
 }
 
 .details-button{

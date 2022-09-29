@@ -7,8 +7,9 @@ export default function Header2() {
   const [searchValue, setSearchValue] = useState("");
   return (
     <header className="header-2">
-      
+      <Link className="links" to="/savedPosts">
       <BsFillBookmarkFill className="bookmark" />
+      </Link>
         <input onChange={(event) => {
           setSearchValue(event.target.value.toLowerCase())
         }} type="text" placeholder="Search for posts..." />
