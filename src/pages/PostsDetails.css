@@ -5,13 +5,15 @@
     height: 400px;
     justify-content: start;
     gap: 30px;
-    margin: 20px 400px;
+    margin: 70px 400px;
   }
 
   .post-detail-side{
     display: grid;
-    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 20px));
+    margin-top: 50px;
   }
+  
 
   .post-details img{
     border-radius: 10px;
@@ -40,4 +42,13 @@
     background-color: #3e443e;
     box-shadow: 0 2px #666;
     transform: translateY(3px);
+}
+
+.user-info{
+  border: thin solid grey;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  width: fit-content;
+  height: fit-content;
 }

@@ -12,20 +12,19 @@ type Props = {
 };
 
 export default function Header1({ currentUser, signOut }: Props) {
-  
   let navigate = useNavigate();
 
   return (
     <header className="header-1">
       <div className="header-1-icons">
-      <Link to="/posts">
-      <img
-        className="logo"
-        src="https://www.merrjep.com/Content/Images/Kosovo/Kosovo.svg"
-        alt="merrjep"
-        width={350}
-      />
-      </Link>
+        <Link to="/posts">
+          <img
+            className="logo"
+            src="https://www.merrjep.com/Content/Images/Kosovo/Kosovo.svg"
+            alt="merrjep"
+            width={350}
+          />
+        </Link>
       </div>
       {currentUser ? (
         <div className="header-1-user-signout">
@@ -39,6 +38,7 @@ export default function Header1({ currentUser, signOut }: Props) {
             onClick={() => {
               signOut();
             }}
+            className="signout-button"
           >
             Sign Out
           </button>

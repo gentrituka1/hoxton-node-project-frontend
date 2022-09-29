@@ -116,3 +116,25 @@
     box-shadow: 0 2px #666;
     transform: translateY(3px);
 }
+
+.signout-button{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #afb6af;
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 3px #999;
+    cursor: pointer;
+}
+
+.signout-button:hover{
+    background-color: #afb6af;
+    color: white;
+}
+
+.signout-button:active{
+    background-color: #3e443e;
+    box-shadow: 0 2px #666;
+    transform: translateY(3px);
+}

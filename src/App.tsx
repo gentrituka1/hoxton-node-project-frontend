@@ -96,7 +96,7 @@ function App({ searchValue, savedPosts, setSavedPosts, saved }: Props) {
         setPosts={setPosts}
         posts={posts}
       />
-      {currentUser ? <Header2 /> : null}
+      {currentUser ? <Header2 setPosts={setPosts} /> : null}
       <Routes>
         <Route index element={<Navigate to="/posts" />} />
         <Route path="/posts/:id" element={<PostsDetails />} />
