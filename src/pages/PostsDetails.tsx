@@ -33,9 +33,9 @@ export function PostsDetails() {
         </p>
         <p>
           <u>
-            <b>Pirce:</b>
+            <b>Price:</b>
           </u>
-          {post.price} $
+          <span> {post.price}$</span>
         </p>
         <Link to={"/posts"}>
           <button className="back-button">Go Back</button>
