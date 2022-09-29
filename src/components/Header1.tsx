@@ -26,9 +26,6 @@ export default function Header1({ currentUser, signOut }: Props) {
         width={350}
       />
       </Link>
-      <Link to="/posts">
-        <button className="posts-button">POSTS</button>
-      </Link>
       </div>
       {currentUser ? (
         <div className="header-1-user-signout">
