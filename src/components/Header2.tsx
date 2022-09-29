@@ -13,9 +13,10 @@ export default function Header2() {
           setSearchValue(event.target.value.toLowerCase())
         }} type="text" placeholder="Search for posts..." />
       <div className="header-2-pages">
-        <button className="create-post-button">
+        <Link to="/createPost"><button className="create-post-button">
           ➕ CREATE A POST
           </button>
+        </Link>
       </div>
     </header>
   );

@@ -1,0 +1,13 @@
+.create-post{
+    display: grid;
+    place-items: start;
+    gap: 30px;
+}
+.create-post form{
+    display: grid;
+    justify-items: start;
+}
+.create-post form label{
+    display: grid;
+    justify-items: start;
+}

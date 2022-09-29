@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Posts from "./pages/Posts";
 import { PostsDetails } from "./pages/PostsDetails";
+import CreatePost from "./pages/createPost";
 
 export type User = {
   id: number;
@@ -102,6 +103,7 @@ function App(searchValue: string) {
         />
         <Route path="/login" element={<Login signIn={signIn} />} />
         <Route path="/signup" element={<Signup signIn={signIn} />} />
+        <Route path="/createPost" element={<CreatePost />} />
       </Routes>
     </div>
   );
