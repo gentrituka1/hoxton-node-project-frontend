@@ -31,8 +31,6 @@ type Props = {
 };
 
 export default function Posts({currentUser, posts, setPosts }: Props) {
-  const [savedPosts, setSavedPosts] = useState<Post[]>([]);
-  const [saved, setSaved] = useState<boolean>(false);
 
   return (
     <div className="main">
