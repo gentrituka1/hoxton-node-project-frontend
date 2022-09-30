@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { Post } from "../App";
+import { Post, User } from "../App";
 import { TiDelete } from "react-icons/ti";
 
 type Props = {
   post: Post;
   setPosts: (posts: Post[]) => void;
+  currentUser: User
 };
 
-export default function ItemRow({ post, setPosts }: Props) {
+export default function ItemRow({ currentUser, post, setPosts }: Props) {
+
+  console.log(currentUser)
+
+  if(!currentUser) return <h1>Loading...</h1>
+  
   return (
     <div className="single-post">
       <div key={post.id}>
@@ -74,6 +80,7 @@ export default function ItemRow({ post, setPosts }: Props) {
               <BsBookmark />
             )}
           </button>
+          {post.userId === currentUser.id ?  
           <button
             onClick={() => {
               return fetch(`http://localhost:4000/posts/${post.id}`, {
@@ -88,6 +95,7 @@ export default function ItemRow({ post, setPosts }: Props) {
           >
             <TiDelete className="delete-btn" />
           </button>
+          : null}
         </div>
       </div>
     </div>

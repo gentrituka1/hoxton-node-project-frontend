@@ -113,6 +113,7 @@
     font-style: italic;
 }
 .my-posts{
+    padding-top: 20px;
     display: grid;
     place-items: center;
     gap: 10px;

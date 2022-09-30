@@ -15,7 +15,7 @@ export default function MyPosts( { posts, setPosts, currentUser }: Props) {
         <div className='my-posts'>
             <h1 className='my-posts-h1'>My Posts</h1>
             {posts.reverse().filter(post => post.userId === currentUser.id).map((post) => (
-                <ItemRow post={post} setPosts={setPosts}/>
+                <ItemRow currentUser={currentUser} post={post} setPosts={setPosts}/>
             ))}
         </div>
     </main>
