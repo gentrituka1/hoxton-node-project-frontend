@@ -8,13 +8,12 @@ type Props = {
 };
 
 export default function createPost({ currentUser, setPosts }: Props) {
-
   let navigate = useNavigate();
 
   return (
     <main className="main">
       <div className="create-post">
-        <h1>CREATE A POST</h1>
+        <h1 className="create-h1">CREATE A POST</h1>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -27,7 +26,7 @@ export default function createPost({ currentUser, setPosts }: Props) {
                 price: event.target.price.value,
                 toBuy: true,
                 toSell: false,
-                userId: currentUser.id
+                userId: currentUser.id,
               };
               fetch("http://localhost:4000/posts", {
                 method: "POST",
@@ -51,7 +50,7 @@ export default function createPost({ currentUser, setPosts }: Props) {
                 price: event.target.price.value,
                 toBuy: false,
                 toSell: true,
-                userId: currentUser.id
+                userId: currentUser.id,
               };
               return fetch("http://localhost:4000/posts", {
                 method: "POST",
@@ -65,55 +64,70 @@ export default function createPost({ currentUser, setPosts }: Props) {
                   .then((posts) => {
                     setPosts(posts);
                   });
-              })
+              });
             }
             navigate("/posts");
           }}
         >
           <fieldset className="buy-sell">
-            <legend>What are you looking for?</legend>
+            <legend className="legend">What are you looking for?</legend>
             <label>
-              To Buy
+              <p className="create-a-post-label">To Buy</p>
               <input type="radio" name="action" value="To Buy" />
             </label>
             <label>
-              To Sell
+              <p className="create-a-post-label">To Sell</p>
               <input type="radio" name="action" value="To Sell" />{" "}
             </label>
           </fieldset>
-          <label>Categories <input type="text" name="tags"/></label>
           <label>
-            <span>Title</span>
-            <input name="title" type="text" required />
+            <p className="create-a-post-label">Categories:</p>{" "}
+            <input type="text" name="tags" className="create-post-input" />
           </label>
           <label>
-            <span>Description</span> <textarea name="content" />
+            <p className="create-a-post-label">Title:</p>
+            <input
+              name="title"
+              type="text"
+              className="create-post-input"
+              required
+            />
           </label>
           <label>
-            <span>Price</span>
-            <input name="price" type="number" required /> EUR
+            <p className="create-a-post-label">Description:</p>{" "}
+            <textarea name="content" className="create-post-textarea" />
           </label>
           <label>
-            <span>Image</span>
-            <input name="image" type="url" />
+            <p className="create-a-post-label">Price:</p>
+            <input
+              name="price"
+              type="number"
+              className="create-post-input"
+              required
+            />
+            <p className="create-a-post-label">€</p>
+          </label>
+          <label>
+            <p className="create-a-post-label">Image:</p>
+            <input name="image" type="url" className="create-post-input" />
           </label>
           <label>
             <input type="checkbox" required />
-            <span>
+            <p className="create-a-post-label">
               Yes, I approve the management of personal data by MerrJep. The
               recorded data will be collected and processed only for the
               aforementioned purposes.
-            </span>
+            </p>
           </label>
           <label>
             <input type="checkbox" required />
-            <span>
+            <p className="create-a-post-label">
               Yes, I agree to the terms and conditions of MerrJep.com. Read more
               details about Personal Data Processing Rights in the Privacy
               Policy section of the MerrJep.com website.
-            </span>
+            </p>
           </label>
-          <button>Submit Post</button>
+          <button className="create-post-btn">Submit Post</button>
         </form>
       </div>
     </main>
