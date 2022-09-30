@@ -36,7 +36,8 @@ export default function Posts({currentUser, posts, setPosts }: Props) {
 
   return (
     <div className="main">
-      <div className="posts-div">
+      <div className="posts-div my-posts">
+        <h1 className="my-posts-h1">All Posts</h1>
         {posts.slice(0).reverse().map((post) => (
           <ItemRow currentUser={currentUser} post={post} setPosts={setPosts}/>
         ))}
