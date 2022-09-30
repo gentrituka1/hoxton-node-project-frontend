@@ -10,6 +10,7 @@ import { PostsDetails } from "./pages/PostsDetails";
 import CreatePost from "./pages/createPost";
 import SavedPosts from "./pages/savedPosts";
 import { SearchPage } from "./components/SearchPage";
+import Footer from "./components/Footer";
 
 export type User = {
   id: number;
@@ -112,6 +113,7 @@ function App({ searchValue, savedPosts, setSavedPosts, saved }: Props) {
           element={<SavedPosts setPosts={setPosts} />}
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

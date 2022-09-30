@@ -1,5 +1,7 @@
 .main-div{
     margin-top: 100px;
+    display: flex;
+    justify-items: center;
 }
 
 .image{
@@ -9,7 +11,6 @@
 
 .posts-div{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .single-post{

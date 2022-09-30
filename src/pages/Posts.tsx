@@ -33,7 +33,7 @@ export default function Posts({ posts, setPosts }: Props) {
   const [saved, setSaved] = useState<boolean>(false);
 
   return (
-    <div className="main-div">
+    <div className="main">
       <div className="posts-div">
         {posts.map((post) => (
           <ItemRow post={post} setPosts={setPosts}/>

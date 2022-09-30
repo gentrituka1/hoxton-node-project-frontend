@@ -1,0 +1,38 @@
+.footer{
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    padding: 30px;
+}
+.footer-middle-roboto{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #afb6af;
+}
+.footer-middle-address{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #afb6af;
+    font-size: 0.8rem;
+}
+.footer-end{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+}
+.footer-phone{
+    align-self: center;
+    font-size: 2.5rem;
+    color: #afb6af
+}
+
+.footer-phone-numbers{
+    align-self: center;
+}
+
+.footer-phone-numbers p {
+    font-size: 12px;
+    color: #afb6af;
+    font-family: Arial;
+    font-weight: bold;
+}

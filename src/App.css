@@ -17,6 +17,7 @@
 }
 .main{
   grid-area: main;
+  border-bottom: 1px solid #e6e6e6;
 }
 .footer {
   grid-area: footer;
