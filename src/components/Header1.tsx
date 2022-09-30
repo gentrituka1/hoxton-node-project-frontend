@@ -28,6 +28,7 @@ export default function Header1({ currentUser, signOut }: Props) {
       </div>
       {currentUser ? (
         <div className="header-1-user-signout">
+          <Link className="link" to="/myPosts"><p className="my-posts-p">My Posts</p></Link>
           <div className="header-1-user">
             <p className="user-name">{currentUser.name.toUpperCase()}</p>
             <div className="header-1-user-image">

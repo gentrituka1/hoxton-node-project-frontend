@@ -107,3 +107,13 @@
     box-shadow: 0 2px #666;
     transform: translateY(3px);
 }
+.my-posts-h1{
+    color: red;
+    font-size: 36px;
+    font-style: italic;
+}
+.my-posts{
+    display: grid;
+    place-items: center;
+    gap: 10px;
+}

@@ -139,3 +139,16 @@
     box-shadow: 0 2px #666;
     transform: translateY(3px);
 }
+.my-posts-p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    transform: translateX(-30px);
+    color: #99999934;
+}
+.my-posts-p:hover{
+    color: #999999b9;
+    cursor: pointer;
+}
+.link{
+    text-decoration: none;
+}

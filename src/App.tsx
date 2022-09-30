@@ -11,6 +11,7 @@ import CreatePost from "./pages/createPost";
 import SavedPosts from "./pages/savedPosts";
 import { SearchPage } from "./components/SearchPage";
 import Footer from "./components/Footer";
+import MyPosts from "./pages/MyPosts";
 
 export type User = {
   id: number;
@@ -112,6 +113,7 @@ function App({ searchValue, savedPosts, setSavedPosts, saved }: Props) {
           path="/savedPosts"
           element={<SavedPosts setPosts={setPosts} />}
         />
+        <Route path="/myPosts" element={<MyPosts currentUser={currentUser} setPosts={setPosts} posts={posts} />} />
       </Routes>
       <Footer />
     </div>
