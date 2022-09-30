@@ -14,3 +14,48 @@
     justify-content: end;
     gap: 20px;
 }
+
+.login-h1{
+    color: red;
+    font-size: 36px;
+    font-style: italic;
+}
+
+.account{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-input{
+    width: 300px;
+    height: 35px;
+    border-radius: 20px;
+    border: thin solid gray;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+.login-btn{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #afb6af;
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 3px #999;
+    cursor: pointer;
+    width: 75px;
+    height: 30px;
+    justify-self: center;
+}
+
+.login-btn:hover{
+    background-color: #afb6af;
+    color: white;
+}
+
+.login-btn:active{
+    background-color: #3e443e;
+    box-shadow: 0 2px #666;
+    transform: translateY(3px);
+}
