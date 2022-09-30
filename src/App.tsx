@@ -91,8 +91,9 @@ function App({ searchValue, savedPosts, setSavedPosts, saved }: Props) {
 
   return (
     <div className="App">
-      {/* @ts-ignore */}
+      
       <Header1
+      // @ts-ignore
         currentUser={currentUser}
         signOut={signOut}
         setPosts={setPosts}
@@ -104,16 +105,45 @@ function App({ searchValue, savedPosts, setSavedPosts, saved }: Props) {
         <Route path="/posts/:id" element={<PostsDetails />} />
         <Route
           path="/posts"
-          element={<Posts currentUser={currentUser} setPosts={setPosts} posts={posts} />}
+          // @ts-ignore
+          element={
+            <Posts
+              // @ts-ignore
+              currentUser={currentUser}
+              setPosts={setPosts}
+              posts={posts}
+            />
+          }
         />
         <Route path="/login" element={<Login signIn={signIn} />} />
         <Route path="/signup" element={<Signup signIn={signIn} />} />
-        <Route path="/createPost" element={<CreatePost currentUser={currentUser} setPosts={setPosts}/>} />
+        <Route
+          path="/createPost"
+          element={<CreatePost 
+            // @ts-ignore
+            currentUser={currentUser} 
+            setPosts={setPosts} 
+            />}
+        />
         <Route
           path="/savedPosts"
-          element={<SavedPosts currentUser={currentUser} setPosts={setPosts} />}
+          element={<SavedPosts 
+            // @ts-ignore
+            currentUser={currentUser} 
+            setPosts={setPosts} 
+            />}
         />
-        <Route path="/myPosts" element={<MyPosts currentUser={currentUser} setPosts={setPosts} posts={posts} />} />
+        <Route
+          path="/myPosts"
+          element={
+            <MyPosts
+            // @ts-ignore
+              currentUser={currentUser}
+              setPosts={setPosts}
+              posts={posts}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </div>
