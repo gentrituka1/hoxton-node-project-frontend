@@ -35,7 +35,7 @@ export default function Posts({ posts, setPosts }: Props) {
   return (
     <div className="main">
       <div className="posts-div">
-        {posts.reverse().map((post) => (
+        {posts.slice(0).reverse().map((post) => (
           <ItemRow post={post} setPosts={setPosts}/>
         ))}
       </div>
