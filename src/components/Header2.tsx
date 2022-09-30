@@ -29,9 +29,8 @@ export default function Header2({ setPosts }: Props) {
         <BsFillBookmarkFill className="bookmark" />
       </Link>
 
-      <form onSubmit={(event) => handleSubmit(event)} className="search-form">
+      <form onChange={(event) => handleSubmit(event)} className="search-form">
         <input type="text" placeholder="Search for posts..." name="search" />
-        <button type="submit">Search</button>
       </form>
 
       <div className="header-2-pages">

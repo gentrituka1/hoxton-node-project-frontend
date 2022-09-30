@@ -82,14 +82,14 @@ export default function createPost({ currentUser, setPosts }: Props) {
           </fieldset>
           <label>
             <p className="create-a-post-label">Categories:</p>{" "}
-            <input type="text" name="tags" className="create-post-input" />
+            <input type="text" name="tags" className="create-post-input1" />
           </label>
           <label>
             <p className="create-a-post-label">Title:</p>
             <input
               name="title"
               type="text"
-              className="create-post-input"
+              className="create-post-input2"
               required
             />
           </label>
@@ -102,14 +102,14 @@ export default function createPost({ currentUser, setPosts }: Props) {
             <input
               name="price"
               type="number"
-              className="create-post-input"
+              className="create-post-input3"
               required
             />
             <p className="create-a-post-label">€</p>
           </label>
           <label>
             <p className="create-a-post-label">Image:</p>
-            <input name="image" type="url" className="create-post-input" />
+            <input name="image" type="url" className="create-post-input4" />
           </label>
           <label>
             <input type="checkbox" required />
