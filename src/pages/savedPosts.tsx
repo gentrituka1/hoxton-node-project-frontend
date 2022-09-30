@@ -23,7 +23,7 @@ export default function savedPosts( { setPosts }: Props) {
     <main className='main'>
         <div className='saved-posts'>
             <h1 className='saved-posts-h1'>Saved Posts</h1>
-            {savedPosts.filter(post => post.saved === true).map((post) => (
+            {savedPosts.reverse().filter(post => post.saved === true).map((post) => (
                 <ItemRow post={post} setPosts={setPosts}/>
             ))}
         </div>
