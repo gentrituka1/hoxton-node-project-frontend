@@ -1,3 +1,13 @@
 .no-saved-posts{
     color: crimson;
 }
+.saved-posts-h1{
+    color: red;
+    font-size: 36px;
+    font-style: italic;
+}
+.saved-posts{
+    display: grid;
+    place-items: center;
+    gap: 10px;
+}
